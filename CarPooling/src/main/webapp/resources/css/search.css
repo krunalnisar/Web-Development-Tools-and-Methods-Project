@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+
+#map-canvas {
+
+  height: 300px;
+  width: 800px;
+  margin: auto;
+  padding-top: 10px;
+  border:1px solid black;
+}
+
+div{
+	border:0px solid red;
+}
+
+h3{
+	padding-left: 55px;
+}
+
+ 
+ 
+

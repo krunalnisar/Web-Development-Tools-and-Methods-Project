@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.DriverDetails" table="DRIVERDETAILS">
+        <id name="driveId" type="int" access="field">
+            <column name="DRIVEID" />
+           <generator class="foreign" >
+            		<param name="property">user</param>
+            </generator>
+        </id>
+        <property name="licenseNo" type="java.lang.String" access="field">
+            <column name="LICENSENO" />
+        </property>
+        <property name="validity" type="java.util.Date" access="field">
+            <column name="VALIDITY" />
+        </property>
+        <one-to-one name="user" class="com.me.pojo.User" access="field" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

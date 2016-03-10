@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.Trip" table="TRIP">
+        <id name="tripId" type="int" access="field">
+            <column name="TRIPID" />
+            <generator class="identity" />
+        </id>
+        <property name="status" type="boolean" access="field">
+            <column name="STATUS" />
+        </property>
+        
+        <property name="availableSeats" type="int" access="field">
+            <column name="AVAILABLESEATS" />
+        </property>
+        
+        
+        <property name="comment" type="java.lang.String" access="field">
+            <column name="COMMENT" />
+        </property>
+        
+        <property name="miles" type="float" access="field">
+            <column name="MILES" />
+        </property>
+        
+        <property name="startDate" type="java.sql.Date" access="field">
+            <column name="STARTDATE" />
+        </property>
+        
+        <property name="endDate" type="java.sql.Date" access="field">
+            <column name="ENDDATE" />
+        </property>
+        
+        <property name="time" type="java.sql.Time" access="field">
+            <column name="TIME" />
+        </property>
+        
+        
+        
+        
+        <property name="cost" type="float" access="field">
+            <column name="COST" />
+        </property>
+        
+        <many-to-one name="user" class="com.me.pojo.User" access="field" fetch="join">
+            <column name="USERID" />
+        </many-to-one>
+        
+        <many-to-one name="sourceId" class="com.me.pojo.Places" access="field" fetch="join">
+            <column name="SOURCEID" />
+        </many-to-one>
+        
+		 <many-to-one name="destinationId" class="com.me.pojo.Places" access="field" fetch="join">
+            <column name="DESTINATIONID" />
+        </many-to-one>
+          
+        <set name="passengerList" table="PASSENGERS" inverse="true" lazy="true" access="field">
+            <key>
+                <column name="TRIPID" />
+            </key>
+            <one-to-many class="com.me.pojo.Passengers" />
+        </set>
+      
+    	        
+        <set name="messageList" table="MESSAGE" inverse="true" lazy="true" fetch="select" >
+            <key>
+                <column name="TRIPID" />
+            </key>
+             <one-to-many class="com.me.pojo.Message" />
+        </set>
+    </class>
+</hibernate-mapping>

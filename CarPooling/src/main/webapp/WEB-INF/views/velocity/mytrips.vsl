@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Trips</title>
+<link rel="stylesheet" type="text/css" href="resources/css/mytrips.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/bootflat.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="resources/css/header.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+   
+  <style type="text/css">
+  #space{
+  padding-top: 70px;
+  }
+  </style>
+
+
+</head>
+<body>
+<div class="row" >
+			<div class="col-md-5">
+			</div>
+			
+			<div class="col-md-3">
+			<h1>CARPOOL  WEBSITE</h1>
+			</div>	
+			
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-1">
+			<h2>${user.name}</h2>
+			</div>
+			<div class="col-md-1" class="logout">
+			<h2><a href="logout.html">Logout</a></h2>
+			</div>
+	</div>
+
+<nav>
+  <div class="bookend"></div>
+  <ul>
+   <!--  <li><a href="#"><i class="icon-user"></i></a></li> -->
+    <li><a href="mytrips.html"><i class="icon-home"></i> My Trips</a></li>
+    <li><a href="searcharide.html"><i class="icon-search"></i> Search Trip</a></li>
+    <li><a href="postATrip.html"><i class="icon-tag"></i> Post Trip</a></li>
+    <li><a href="messages.html"><i class="icon-envelope"></i> Messages</a></li>
+    <li></li>
+  </ul>
+  <div class="bookend"></div>
+</nav>
+
+<div id="space"></div>
+#foreach ($trip in $tripList)  
+<div class="timeline">
+						
+						  <dl>
+						 
+						 #if ($trip.tripId % 2 == 1)
+						  
+							  <dt>${trip.startDate}</dt>
+							  <dd class="pos-left clearfix">
+								  <div class="circ"></div>	
+								  <div class="time"></div>
+								  <div class="events">
+									 
+									  <div class="events-body">
+										  <h4 class="events-heading">${trip.sourceId.places} to ${trip.destinationId.places}</h4>
+										 <h4>INITIATED BY  : ${trip.user.name}</h4>
+										  <h4>TIME : ${trip.time}</h4>
+										  <h4>Miles :${trip.miles} </h4>
+										  <h4>Cost :${trip.cost} </h4>
+									  </div>
+								  </div>
+							  </dd>
+							  #end
+							  
+							  	 
+							   #if ($trip.tripId % 2 == 0)
+							  <dt>${trip.startDate}</dt>
+							  <dd class="pos-right clearfix">
+								  <div class="circ"></div>
+								  <div class="time"></div>
+								  <div class="events">
+									  
+									  <div class="events-body">
+										  <h4 class="events-heading">${trip.sourceId.places} to ${trip.destinationId.places}</h4>
+										 <h4>INITIATED BY  : ${trip.user.name}</h4>
+										  <h4>TIME : ${trip.time}</h4>
+										  <h4>Miles :${trip.miles} </h4>
+										  <h4>Cost :${trip.cost} </h4>
+									  </div>
+								  </div>
+							  </dd>
+							 #end
+						</dl>
+</div>
+#end
+</body>
+</html>

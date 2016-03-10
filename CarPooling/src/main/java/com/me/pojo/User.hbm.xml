@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.User" table="USER">
+        <id name="userId" type="java.lang.Integer">
+            <column name="USERID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+		<property name="gender" type="java.lang.String" access="field">
+            <column name="GENDER" />
+        </property>
+        <property name="age" type="int" access="field">
+            <column name="AGE" />
+        </property>
+        <property name="email" type="java.lang.String" access="field">
+            <column name="EMAIL" />
+        </property>
+        <property name="mobile" type="java.lang.String" access="field">
+            <column name="MOBILE" />
+        </property>
+        <property name="imageFile" type="java.lang.String" access="field">
+            <column name="IMAGEFILE" />
+        </property>
+        <property name="status" type="boolean" access="field">
+            <column name="STATUS" />
+        </property>
+		<one-to-one name="driverdetails" class="com.me.pojo.DriverDetails" cascade="save-update"></one-to-one>
+        <one-to-one name="car" class="com.me.pojo.Car" cascade="save-update"></one-to-one>
+        <one-to-one name="address" class="com.me.pojo.Address" cascade="save-update"></one-to-one>
+		<one-to-one name="cardDetails" class="com.me.pojo.CardDetails" cascade="save-update"></one-to-one>
+		
+		<set name="tripList" table="TRIP" inverse="true" lazy="true" access="field"> 
+            <key>
+                <column name="USERID" />
+            </key>
+            <one-to-many class="com.me.pojo.Trip" />
+        </set>
+        
+		<set name="passengerList" table="PASSENGERS" inverse="true" lazy="true" access="field">
+            <key>
+                <column name="USERID" />
+            </key>
+            <one-to-many class="com.me.pojo.Passengers" />
+        </set>
+        
+
+        <set name="messageList" table="MESSAGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" />
+            </key>
+         	 <one-to-many class="com.me.pojo.User_Trip" />
+        </set>
+    </class>
+</hibernate-mapping>

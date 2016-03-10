@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.Places" table="PLACES">
+        <id name="placeId" type="int" access="field">
+            <column name="PLACEID" />
+            <generator class="identity" />
+        </id>
+        <property name="places" type="java.lang.String" access="field">
+            <column name="PLACES" />
+        </property>
+        <property name="latitude" type="java.lang.String" access="field">
+            <column name="LATITUDE" />
+        </property>
+        <property name="longitude" type="java.lang.String" access="field">
+            <column name="LONGITUDE" />
+        </property>
+        
+        <set name="sourceId" table="TRIP" inverse="true" lazy="true" access="field">
+            <key>
+                <column name="SOURCEID" />
+            </key>
+            <one-to-many class="com.me.pojo.Trip" />
+        </set>
+        
+        <set name="destinationId" table="TRIP" inverse="true" lazy="true" access="field">
+            <key>
+                <column name="DESTINATIONID" />
+            </key>
+            <one-to-many class="com.me.pojo.Trip" />
+        </set>
+        
+
+        
+        
+    </class>
+</hibernate-mapping>

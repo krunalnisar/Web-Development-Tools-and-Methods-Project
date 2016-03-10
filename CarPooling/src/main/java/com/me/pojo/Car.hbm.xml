@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.Car" table="CAR">
+        <id name="carId" type="int" access="field">
+            <column name="CARID" />
+            <generator class="foreign" >
+            		<param name="property">user</param>
+            </generator>
+        </id>
+        <property name="name" type="java.lang.String" access="field">
+            <column name="NAME" />
+        </property>
+        <property name="capacity" type="int" access="field">
+            <column name="CAPACITY" />
+        </property>
+        <property name="modelNo" type="java.lang.String" access="field">
+            <column name="MODELNO" />
+        </property>
+        <property name="color" type="java.lang.String" access="field">
+            <column name="COLOR" />
+        </property>
+        <property name="imageFile" type="java.lang.String" access="field">
+            <column name="IMAGEFILE" />
+        </property>
+        <one-to-one name="user" class="com.me.pojo.User" access="field" ></one-to-one>
+    </class>
+</hibernate-mapping>

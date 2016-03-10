@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		<bean id="placesDao" class="com.me.dao.PlacesDao" />
+	<bean id="userDao" class="com.me.dao.UserDao"/>
+	<bean id="messageDao" class="com.me.dao.MessageDao"></bean>
+	<bean id="tripDao" class="com.me.dao.TripDao"></bean>
+	<bean id="cardDao" class="com.me.dao.CardDao"></bean>
+	<bean id="userValidator" class="com.me.validator.UserValidator"></bean>
+	<bean id="cardValidator" class="com.me.validator.CardValidator"></bean>
+	<bean id="CarValidator" class="com.me.validator.CarValidator"></bean>
+	<bean id="addressValidator" class="com.me.validator.AddressValidator"></bean>
+</beans>

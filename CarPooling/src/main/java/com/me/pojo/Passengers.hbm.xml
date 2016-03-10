@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.Passengers" table="PASSENGERS">
+        <id name="passengerId" type="int" access="field">
+            <column name="PASSENGERID" />
+            <generator class="identity" />
+        </id>
+        <property name="sourceId" type="int" access="field">
+            <column name="SOURCEID" />
+        </property>
+        <property name="destinationId" type="int" access="field">
+            <column name="DESTINATIONID" />
+        </property>
+        <property name="feedback" type="java.lang.String" access="field">
+            <column name="FEEDBACK" />
+        </property>
+        
+        <many-to-one name="user" class="com.me.pojo.User" access="field" fetch="join">
+            <column name="USERID" />
+        </many-to-one>
+        <many-to-one name="trip" class="com.me.pojo.Trip" access="field" fetch="join">
+            <column name="TRIPID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

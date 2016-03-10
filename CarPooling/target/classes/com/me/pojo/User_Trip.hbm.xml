@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.User_Trip" table="USER_TRIP">
+      
+        
+        <composite-id name="statusId" class="com.me.pojo.User_Trip">
+        <key-many-to-one name="user" class="com.me.pojo.User" column="USERId"></key-many-to-one>
+        <key-many-to-one name="trip" class="com.me.pojo.Trip" column="TRIPId"></key-many-to-one>
+        </composite-id>
+        
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.me.pojo.Message" table="MESSAGE">
+
+<id name="messageId" type="java.lang.Integer">
+<column name="MESSAGEID"></column>
+<generator class="identity">
+</generator> 
+</id>
+
+<property name="sender" type="java.lang.String">
+<column name="SENDER"></column>
+</property>
+
+<property name="reciever" type="java.lang.String">
+<column name="RECIEVER"></column>
+</property>
+
+<property name="messages" type="java.lang.String">
+<column name="MESSAGES"></column>
+</property>
+
+<property name="date" type="java.util.Date">
+<column name="DATE"></column>
+</property>
+
+<property name="status" type="java.lang.String">
+<column name="STATUS"></column>
+</property>
+
+<many-to-one name="user" fetch="select" class="com.me.pojo.User">
+	<column name="USERID"></column>
+</many-to-one>
+
+<many-to-one name="trip" fetch="select" class="com.me.pojo.Trip">
+	<column name="TRIPID"></column>
+</many-to-one>
+
+</class>
+</hibernate-mapping>

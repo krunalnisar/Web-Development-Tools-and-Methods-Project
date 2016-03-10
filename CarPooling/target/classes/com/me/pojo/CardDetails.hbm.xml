@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.CardDetails" table="CARDDETAILS">
+        <id name="cardId" type="int" access="field">
+            <column name="CARID" />
+            <generator class="foreign" >
+            		<param name="property">user</param>
+            </generator>
+        </id>
+        <property name="cardHolder" type="java.lang.String" access="field">
+            <column name="CARDHOLDER" />
+        </property>
+        <property name="cardNo" type="java.lang.String" access="field">
+            <column name="CARDNO" />
+        </property>
+        <property name="expiryDate" type="java.util.Date" access="field">
+            <column name="EXPIRYDATE" />
+        </property>
+       	
+        <one-to-one name="user" class="com.me.pojo.User" access="field" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

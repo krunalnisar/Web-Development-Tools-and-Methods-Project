@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2015 10:30:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.me.pojo.Address" table="ADDRESS">
+        <id name="addressId" type="int" access="field">
+            <column name="ADDRESSID" />
+            <generator class="foreign" >
+            		<param name="property">user</param>
+            </generator>
+        </id>
+        <property name="street" type="java.lang.String" access="field">
+            <column name="STREET" />
+        </property>
+        <property name="city" type="java.lang.String" access="field">
+            <column name="CITY" />
+        </property>
+        <property name="state" type="java.lang.String" access="field">
+            <column name="STATE" />
+        </property>
+        <property name="country" type="java.lang.String" access="field">
+            <column name="COUNTRY" />
+        </property>
+        <property name="zip" type="java.lang.String" access="field">
+            <column name="ZIP" />
+        </property>
+        <one-to-one name="user" class="com.me.pojo.User" access="field" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>
